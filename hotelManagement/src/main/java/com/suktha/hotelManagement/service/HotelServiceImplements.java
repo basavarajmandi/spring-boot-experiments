@@ -23,7 +23,7 @@ public class HotelServiceImplements implements HotelService {
 
     @Override
     public List<UdapiHotel> GetAllHOTel() {
-
+        System.out.println("running getAllHotel Methos in Hotel Serviceimple method");
         return this.repo.findAll();
     }
 

@@ -10,7 +10,7 @@ import lombok.Setter;
 import java.util.Objects;
 
 @Entity
-@NoArgsConstructor
+
 @Table(name = "HotelEmploye")
 public class UdapiHotel {
 
@@ -24,17 +24,27 @@ public class UdapiHotel {
     private String lastname;
     @Column(name = "location")
     private String location;
+    @Column(name="fees")
+    private int fees;
 
 
     public UdapiHotel(){
         System.out.println("no argument Constructer");
     }
 
-    public UdapiHotel(long id, String firstname, String lastname, String location) {
+    public UdapiHotel(long id, String firstname, String lastname, String location,int fees) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.fees=fees;
      this.location=location;
+    }
+
+    public void setFees(int fees){
+        this.fees=fees;
+    }
+    public int getFees(){
+        return fees;
     }
 
     public void setId(long id){
@@ -68,11 +78,11 @@ public class UdapiHotel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UdapiHotel that = (UdapiHotel) o;
-        return id == that.id && Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname) && Objects.equals(location, that.location);
+        return id == that.id && fees == that.fees && Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname) && Objects.equals(location, that.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, lastname, location);
+        return Objects.hash(id, firstname, lastname, location, fees);
     }
 }

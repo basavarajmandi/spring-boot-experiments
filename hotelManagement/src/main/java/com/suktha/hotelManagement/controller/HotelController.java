@@ -13,7 +13,7 @@ public class HotelController {
     private HotelService service;
 
     //RequestBody is canavart jeson into java Object
-    @PostMapping("/apiHotel")
+    @PostMapping("/Hotel")
     public UdapiHotel CreateHotel(@RequestBody UdapiHotel hotel) {
         UdapiHotel udapi = this.service.validSave(hotel);
         return udapi;
